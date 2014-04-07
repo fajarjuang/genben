@@ -17,6 +17,6 @@ public class GCUtil {
 			System.gc();
 
 			oldUsed = used;
-		} while (oldUsed != used);
+		} while (Math.abs(used - oldUsed) < (0.05 * used));
 	}
 }

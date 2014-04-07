@@ -49,7 +49,7 @@ public class TestRunner {
 				return;
 			}
 
-			//the rest should be the options file
+			//the rest should be in the options file
 			Persister persister = new Persister();
 			TestSuite testSuite = persister.read(TestSuite.class, new File(rest[0]));
 
@@ -70,7 +70,7 @@ public class TestRunner {
 						testDriver.prepare(testCase);
 						testDriver.warmup(testCase);
 
-						//GCUtil.stabilizeMemory();
+						GCUtil.stabilizeMemory();
 						testDriver.run(testCase);
 						testDriver.finish(testCase);
 					}
