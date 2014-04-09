@@ -7,16 +7,24 @@ public class GCUtil {
 
 	public static void stabilizeMemory() {
 		MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
-		long oldUsed = 0;
+		long oldUsed;
 		long used;
+        long change = Long.MAX_VALUE;
+        long oldChange;
+        int iterationCount = 0;
 		do {
-			used = memoryMXBean.getHeapMemoryUsage().getUsed();
-
-			System.out.println(oldUsed);
-
+            oldChange = change;
+			oldUsed = memoryMXBean.getHeapMemoryUsage().getUsed();
 			System.gc();
-
-			oldUsed = used;
-		} while (Math.abs(used - oldUsed) < (0.05 * used));
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            used = memoryMXBean.getHeapMemoryUsage().getUsed();
+            change = Math.abs(oldUsed - used);
+            System.out.println(change + " " + oldChange + " " + used*0.20);
+            iterationCount++;
+		} while (change != oldChange && iterationCount < 50);
 	}
 }
