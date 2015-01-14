@@ -1,0 +1,53 @@
+# templates from https://github.com/github/gitignore concatenated
+
+##########
+# Maven.gitignore
+target/
+
+
+##########
+# Eclipse.gitignore
+*.pydevproject
+.project
+.metadata
+.classpath
+.settings/
+
+
+##########
+# Intellij
+.idea/
+*.iml
+*.iws
+
+
+##########
+# Linux.gitignore
+*~
+
+
+##########
+# OSX.gitignore
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+
+##########
+# Windows.gitignore
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+
+##########
+#project specific
